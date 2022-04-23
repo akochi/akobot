@@ -3,6 +3,7 @@ name = "akobot"
 version = "0.1.0"
 edition = "2021"
 publish = false
+license = "EUPL-1.2"
 
 [dependencies]
 anyhow = "1.0"
