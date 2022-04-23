@@ -65,7 +65,10 @@ pub struct Config {
 pub async fn run(config: Config, token: &str) {
     let (shard, mut events) = Shard::builder(
         token.to_string(),
-        Intents::GUILDS | Intents::GUILD_MESSAGES | Intents::MESSAGE_CONTENT,
+        Intents::GUILDS
+            | Intents::GUILD_MESSAGES
+            | Intents::MESSAGE_CONTENT
+            | Intents::GUILD_MEMBERS,
     )
     .build();
     shard.start().await.unwrap();
