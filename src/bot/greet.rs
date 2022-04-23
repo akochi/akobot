@@ -97,11 +97,10 @@ fn prepare_embed(user: &User) -> anyhow::Result<EmbedBuilder> {
 }
 
 fn get_config(global: &super::Config, guild: Id<GuildMarker>) -> Option<Arc<Config>> {
-    if let Some(config) = global.greet.get(&guild.to_string()) {
-        Some(Arc::new(config.clone()))
-    } else {
-        None
-    }
+    global
+        .greet
+        .get(&guild.to_string())
+        .map(|config| Arc::new(config.clone()))
 }
 
 pub async fn handle_join(

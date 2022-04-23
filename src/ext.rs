@@ -10,17 +10,17 @@ impl<'r> fmt::Display for UserTuple<'r> {
 }
 
 pub trait UserExt {
-    fn as_tuple<'r>(&'r self) -> UserTuple<'r>;
+    fn as_tuple(&self) -> UserTuple;
 }
 
 impl UserExt for User {
-    fn as_tuple<'r>(&'r self) -> UserTuple<'r> {
+    fn as_tuple(&self) -> UserTuple {
         UserTuple(&self.name, &self.discriminator)
     }
 }
 
 impl UserExt for CurrentUser {
-    fn as_tuple<'r>(&'r self) -> UserTuple<'r> {
+    fn as_tuple(&self) -> UserTuple {
         UserTuple(&self.name, &self.discriminator)
     }
 }
